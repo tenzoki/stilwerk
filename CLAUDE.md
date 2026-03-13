@@ -1,79 +1,80 @@
-# Stilwerk - Style Analysis Agent
+# Stilwerk - Style Analysis Plugin
 
-You are a style analysis, authorship attribution, and text transformation agent.
+A Claude Code plugin for style analysis, authorship attribution, and text transformation.
 
-## What Can I Do?
+## Setup
 
-**Ask me to:**
-- `/analyze <file>` — Analyze text for AI markers, rhetoric, style
-- `/transform <file> --profile <name>` — Transform text to match a style profile
-- `/project-init <name>` — Create a new project with standard structure
-
-**Or ask questions like:**
-- "Is this text AI-generated?"
-- "Who wrote this text?" (with a corpus of known authors)
-- "Make this sound more human"
-- "What style profiles are available?"
-
----
-
-## Quick Start
-
-### 1. Setup Projects Folder
+### 1. Set Projects Folder (once)
 
 ```bash
 export STILWERK_PROJECTS=~/Documents/stilwerk-projects
 ```
 
-### 2. Create a Project
+Add to `~/.zshrc` or `~/.bashrc` to persist.
+
+### 2. Create or Open a Project
 
 ```
-/project-init my-analysis
+/sw_create my-essay --profile essay
 ```
 
-Creates:
-```
-$STILWERK_PROJECTS/my-analysis/
-├── corpus/     # Exemplar texts (for learning styles)
-├── input/      # Texts to analyze/transform
-├── analysis/   # Output reports
-└── project.yaml
-```
-
-### 3. Analyze or Transform
+or
 
 ```
-/analyze input/mystery-text.md
-/transform input/ai-draft.md --profile technical-blog
+/sw_open my-essay
+```
+
+### 3. Work with Your Project
+
+```
+/sw_analyze input/draft.md
+/sw_transform input/draft.md
+/sw_info
 ```
 
 ---
 
-## Available Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/project-init <name>` | Create new project |
-| `/analyze <file>` | Analyze text style |
-| `/transform <file> --profile <name>` | Transform to match profile |
+| `/sw_create <name> [--profile <n>]` | Create new project |
+| `/sw_open <name>` | Open existing project |
+| `/sw_info` | Show current project and commands |
+| `/sw_analyze <file> [--quick\|--deep]` | Analyze text style |
+| `/sw_transform <file> [--profile <n>]` | Transform to match profile |
+| `/sw_learn <corpus-subdir> --name <n>` | Learn profile from corpus |
+| `/sw_attribute <file> --corpus <dir>` | Authorship attribution |
 
-### Analysis Protocols
+All paths are relative to `$STILWERK_PROJECTS/$STILWERK_PROJECT`:
+- `input/<file>` — texts to analyze/transform
+- `corpus/<dir>` — exemplar texts
+- `analysis/<file>` — output reports
 
-- `--quick` — 5 min: Core metrics only
-- `--standard` — 15 min: Full metrics + qualitative (default)
-- `--deep` — 45+ min: Complete battery + synthesis
+---
 
-### Available Profiles
+## Available Profiles
 
+- `essay` — NYT Magazine narrative style (EN)
 - `technical-blog` — Conversational tech blog (EN)
 - `technical-blog-de` — Technical blog (DE)
 - `base-german` — Base German profile
 
 ---
 
-## What I Analyze
+## Project Structure
 
-### AI Detection Signals
+```
+$STILWERK_PROJECTS/<project>/
+├── corpus/      # Exemplar texts (for learning/attribution)
+├── input/       # Texts to analyze or transform
+├── analysis/    # Output reports
+└── project.yaml # Project config (name, profile, settings)
+```
+
+---
+
+## AI Detection Signals
 
 | Metric | AI Signal | Human Signal |
 |--------|-----------|--------------|
@@ -82,100 +83,24 @@ $STILWERK_PROJECTS/my-analysis/
 | Contraction rate | < 0.2 | > 0.5 |
 | First-person rate | < 1/1000 | > 5/1000 |
 
-### Qualitative Instruments
-
-- **Structure (S)**: Thesis position, bullet ratio, parallel patterns
-- **Lexical (L)**: Register, buzzwords, contractions
-- **Discourse (D)**: Transitions, causal chains, signposting
-- **Coherence (C)**: Paragraph flow, synthesis quality
-- **Voice (V)**: Modality, stance, evaluation
-
 ---
 
 ## CLI Tools
 
-From project root with `PYTHONPATH=.`:
+From stilwerk repo root:
 
 ```bash
 # Profiles
-python -m stilwerk.src.cli profile list
-python -m stilwerk.src.cli profile show <name>
+PYTHONPATH=. python -m stilwerk.src.cli profile list
+PYTHONPATH=. python -m stilwerk.src.cli profile show <name>
 
-# Learn style from corpus
-python -m stilwerk.src.cli learn <corpus-dir> -n <name>
-
-# Authorship attribution
-python -m stilwerk.src.cli attribute <query> -c <corpus>
-
-# Transform workflow
-python -m stilwerk.src.cli compare <file> -p <profile>
-python -m stilwerk.src.cli instruct <file> -p <profile>
-python -m stilwerk.src.cli verify <file> -p <profile>
-```
-
-### Shell Metrics
-
-```bash
-cd stilwerk
-./tools/metrics.sh <file>        # All metrics
-./tools/sentence-stats.sh <file> # Sentence variance
-./tools/transitions.sh <file>    # Transition density
-./tools/contractions.sh <file>   # Contraction rate
-./tools/first-person.sh <file>   # First-person rate
-```
-
----
-
-## Configuration
-
-**stilwerk.conf:**
-```ini
-CORPUS_DIR="corpus"
-ANALYSIS_DIR="analysis"
-INPUT_DIR="input"
-DEFAULT_LANGUAGE="de"
-FIT_THRESHOLD=0.85
-```
-
-**Environment:**
-- `STILWERK_PROJECTS` — Base folder for all projects (required)
-
----
-
-## Output Format
-
-Analysis reports (YAML):
-```yaml
-metadata:
-  text: "example.md"
-  protocol: "standard"
-
-ai_detection:
-  assessment: "LIKELY_HUMAN"
-  confidence: 0.78
-  signals:
-    human: ["high variance", "contractions"]
-    ai: ["clean structure"]
-
-rhetoric:
-  thesis_position: "THESIS_FIRST"
-  evidence_pattern: "EXAMPLE_FIRST"
-
-provenance:
-  l1_hypothesis: "GERMAN"
-  domain: ["SOFTWARE"]
-
-level:
-  command: "C1"
-  complexity: "MODERATE"
-
-synthesis: |
-  Human-authored with possible AI assistance...
+# Shell metrics
+cd stilwerk && ./tools/metrics.sh <file>
 ```
 
 ---
 
 ## References
 
-- `./docs/instruments.md` — Full instrument definitions
-- `./profiles/` — Style profile examples
+- `./docs/instruments.md` — Style analysis instruments
+- `./profiles/` — Style profile definitions

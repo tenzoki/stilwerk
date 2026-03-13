@@ -1,0 +1,158 @@
+# Essay - NYT Magazine Style
+# Narrative journalism: scene-setting, character depth, concrete details
+
+name: "Essay - NYT Magazine"
+description: "Narrative essay style. Scene-driven, character-focused, specific details before abstractions. Observer voice."
+
+# Patterns to ENCOURAGE
+whitelist:
+  # Metric targets
+  - id: U01
+    name: "Sentence variance"
+    target: [10, 18]
+    instruction: |
+      High sentence variety. Mix very short sentences (4-8 words) for punch
+      with longer narrative sentences (20-30 words) for scene-setting.
+      Occasional fragments for rhythm.
+
+  - id: L06
+    name: "Contractions"
+    target: [0.2, 0.4]
+    instruction: |
+      Natural contractions in narrative voice: didn't, it's, that's.
+      Keep formal in quoted speech or technical explanations.
+
+  - id: U05
+    name: "First person"
+    target: [2, 6]  # per 1000 words
+    instruction: |
+      Observer "I" for scene-setting: "I recently visited", "I watched as".
+      Restrained - the story is about them, not you.
+
+  # Qualitative patterns
+  - id: R02
+    name: "Scene opening"
+    instruction: |
+      Open with concrete scene, not thesis. Place the reader in a moment.
+      "Ebert sat before a mammoth curved monitor" not "AI is changing coding".
+
+  - id: R03
+    name: "Specific details"
+    instruction: |
+      Include telling details: age, appearance, setting, objects.
+      "tall and short-bearded 39-year-old" not "a software engineer".
+      Details should reveal character or context.
+
+  - id: A01
+    name: "Narrative structure"
+    instruction: |
+      Weave between present scene and background. Use time markers:
+      "Back then", "last fall", "in the '90s", "the before times".
+      Build context through story, not exposition.
+
+  - id: A02
+    name: "Evidence pattern"
+    instruction: |
+      Show before tell. Concrete scene first, then significance.
+      Quote subjects directly. Let actions reveal character.
+
+  - id: V01
+    name: "Evocative verbs"
+    instruction: |
+      Active, specific verbs: "hunched over", "pondering", "scolds".
+      Avoid was/were constructions where possible.
+
+  - id: V04
+    name: "Direct quotes"
+    instruction: |
+      Weave quotes naturally into narrative.
+      "That alone would have taken me a day," he said.
+      Use quotes for voice and authenticity, not information.
+
+# Patterns to ELIMINATE
+blacklist:
+  - id: D01
+    name: "Transition density"
+    max: 0.25
+    instruction: |
+      Minimal explicit transitions. Scene changes and time markers
+      provide natural flow. Trust the reader.
+    examples:
+      - "Furthermore"
+      - "Additionally"
+      - "Moreover"
+      - "However"
+      - "In conclusion"
+
+  - id: AI01
+    name: "AI phrases"
+    instruction: "Remove all AI-characteristic patterns."
+    examples:
+      - "Let's dive into"
+      - "Let's explore"
+      - "In this article"
+      - "It's important to note"
+      - "It's worth mentioning"
+      - "In today's world"
+
+  - id: S01
+    name: "Thesis-first structure"
+    instruction: |
+      Never open with thesis statement or abstract claim.
+      Never use "In this essay" or "This article explores".
+      Enter through a door, not a summary.
+
+  - id: S02
+    name: "List structure"
+    instruction: |
+      Avoid bullet points and numbered lists.
+      Integrate information into narrative flow.
+
+  - id: L01
+    name: "Abstract language"
+    instruction: |
+      Replace abstractions with specifics.
+      Not "technology is changing work" but "Claude Code does the bulk of it".
+    examples:
+      - "in various ways"
+      - "many people"
+      - "significant impact"
+      - "important implications"
+      - "the industry"
+
+  - id: L02
+    name: "Corporate/academic jargon"
+    instruction: "Use plain language. Be specific."
+    examples:
+      - "leverage"
+      - "utilize"
+      - "paradigm shift"
+      - "ecosystem"
+      - "stakeholders"
+      - "framework"
+
+  - id: V02
+    name: "Passive voice (excessive)"
+    instruction: |
+      Prefer active constructions. Name actors.
+      Not "Software was developed" but "Ebert developed software".
+
+# Example texts
+examples:
+  - path: ../examples/clive-thompson.md
+    note: "NYT Magazine narrative journalism"
+    extract: true
+    include: true
+    weight: 1.0
+
+# Anti-examples
+anti_examples:
+  - path: ../examples/ai-generated.md
+    note: "Abstract, thesis-first, impersonal"
+    include: true
+
+# Settings
+settings:
+  fit_threshold: 0.80
+  max_iterations: 5
+  excerpt_length: 600

@@ -1,0 +1,37 @@
+# Corpus and analysis (private/generated)
+corpus/*
+!corpus/.gitkeep
+analysis/*
+!analysis/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config overrides
+*.local.json
+*.local.yaml
+.claude/settings.local.json

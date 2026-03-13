@@ -11,12 +11,9 @@ A Claude Code plugin for style analysis, authorship attribution, and text transf
 ## Installation
 
 ```bash
-# Clone the repository
 git clone git@github.com:tenzoki/stilwerk.git
 cd stilwerk
-
-# Install Python dependencies
-pip install -e stilwerk/
+pip install -e .
 ```
 
 ## Setup
@@ -27,78 +24,70 @@ pip install -e stilwerk/
 export STILWERK_PROJECTS=~/Documents/stilwerk-projects
 ```
 
-Add to your shell profile (`~/.zshrc` or `~/.bashrc`) to persist.
+Add to `~/.zshrc` or `~/.bashrc` to persist.
 
-### 2. Create Your First Project
+### 2. Start Claude Code
 
 ```bash
 cd stilwerk
 claude
 ```
 
-Then in Claude Code:
+### 3. Create Your First Project
+
 ```
-/project-init my-first-analysis
+/sw_create my-analysis --profile essay
 ```
 
 This creates:
 ```
-$STILWERK_PROJECTS/my-first-analysis/
+$STILWERK_PROJECTS/my-analysis/
 ├── corpus/      # Exemplar texts (for style learning)
 ├── input/       # Texts to analyze or transform
 ├── analysis/    # Output reports
-└── project.yaml # Project config
+└── project.yaml
 ```
 
-### 3. Add Texts and Analyze
+### 4. Add Texts and Work
 
-1. Copy texts to analyze into `input/`
-2. Copy exemplar texts (if learning styles) into `corpus/`
-3. Run commands:
+1. Copy texts to `$STILWERK_PROJECTS/my-analysis/input/`
+2. Run commands:
 
 ```
-/analyze input/my-text.md
-/transform input/my-text.md --profile technical-blog
+/sw_analyze input/my-text.md
+/sw_transform input/my-text.md
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/project-init <name>` | Create new project |
-| `/analyze <file>` | Analyze text (AI detection, rhetoric, style) |
-| `/transform <file> --profile <name>` | Transform text to match profile |
-| `/learn <corpus-dir> --name <name>` | Learn style profile from corpus |
-| `/attribute <file> --corpus <dir>` | Authorship attribution |
+| `/sw_create <name> [--profile <n>]` | Create new project |
+| `/sw_open <name>` | Open existing project |
+| `/sw_info` | Show current project and commands |
+| `/sw_analyze <file>` | Analyze text (AI detection, style) |
+| `/sw_transform <file>` | Transform text to match profile |
+| `/sw_learn <corpus-dir> --name <n>` | Learn style profile from corpus |
+| `/sw_attribute <file> --corpus <dir>` | Authorship attribution |
 
 ### Analysis Protocols
 
 ```
-/analyze input/text.md --quick      # 5 min: core metrics
-/analyze input/text.md --standard   # 15 min: full analysis (default)
-/analyze input/text.md --deep       # 45+ min: comprehensive
+/sw_analyze input/text.md --quick      # Core metrics
+/sw_analyze input/text.md --standard   # Full analysis (default)
+/sw_analyze input/text.md --deep       # Comprehensive
 ```
 
 ### Available Profiles
 
+- `essay` — NYT Magazine narrative style (EN)
 - `technical-blog` — Conversational tech blog (EN)
 - `technical-blog-de` — Technical blog (DE)
 - `base-german` — Base German profile
 
-## Configuration
-
-`stilwerk.conf`:
-```ini
-CORPUS_DIR="corpus"
-ANALYSIS_DIR="analysis"
-INPUT_DIR="input"
-DEFAULT_LANGUAGE="de"
-FIT_THRESHOLD=0.85
-```
-
 ## Documentation
 
-- `CLAUDE.md` — Agent instructions (what stilwerk can do)
+- `CLAUDE.md` — Agent instructions
 - `docs/instruments.md` — Style analysis instruments reference
 
 ## License
