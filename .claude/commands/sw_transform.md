@@ -36,7 +36,7 @@ COMPARE → INSTRUCT → TRANSFORM → VERIFY → (iterate until fit > threshold
 
 4. **Compare against profile**
    ```bash
-   PYTHONPATH=. python -m stilwerk.src.cli compare \
+   stilwerk compare \
      $STILWERK_PROJECTS/$STILWERK_PROJECT/<file> --profile <name>
    ```
 
@@ -48,7 +48,7 @@ COMPARE → INSTRUCT → TRANSFORM → VERIFY → (iterate until fit > threshold
 
 6. **Verify result**
    ```bash
-   PYTHONPATH=. python -m stilwerk.src.cli verify \
+   stilwerk verify \
      $STILWERK_PROJECTS/$STILWERK_PROJECT/<file> --profile <name>
    ```
 

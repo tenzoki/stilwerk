@@ -94,6 +94,112 @@ blacklist:
       - "It's important to note"
       - "It's worth mentioning"
       - "In today's world"
+      - "At the end of the day"
+      - "When it comes to"
+      - "The reality is"
+      - "The truth is"
+      - "It goes without saying"
+      - "With that in mind"
+      - "That said,"
+      - "Moving forward"
+      - "The key takeaway"
+      - "What this means is"
+
+  - id: AI02
+    name: "Em-dash overuse"
+    instruction: |
+      Avoid em-dashes (—). Use commas, parentheses, colons, periods,
+      or restructure the sentence. Maximum one em-dash per 1000 words.
+      Em-dashes are a strong AI tell—Claude uses them constantly.
+    examples:
+      - "sound—and the reasoning"
+      - "tasks, code, artifacts—and this is where"
+      - "a market position—a revenue target—a type of organization"
+
+  - id: AI03
+    name: "Dramatic obviousness"
+    instruction: |
+      Do not present obvious statements as revelations.
+      No standalone one-sentence paragraphs for self-evident truths.
+      If it's obvious, integrate it or cut it. Avoid false profundity.
+    examples:
+      - "Developers rarely work alone."
+      - "But the pattern extends."
+      - "The structure carries over."
+      - "Every organization has this structure."
+      - "This changes everything."
+
+  - id: AI04
+    name: "Mechanical tricolons"
+    instruction: |
+      Avoid three-item parallel lists as sentence rhythm.
+      AI loves "X, Y, and Z" constructions. Vary list lengths.
+      Two items or four items are more human.
+    examples:
+      - "goals, decisions, and artifacts"
+      - "synthesizing, surfacing, and drafting"
+      - "fast, efficient, and scalable"
+
+  - id: AI05
+    name: "This/That sentence starters"
+    instruction: |
+      Reduce sentences starting with "This" or "That" referring
+      to previous content. Often vague. Name the referent or restructure.
+    examples:
+      - "This is where AI excels."
+      - "This means that..."
+      - "That's when I realized..."
+      - "This changes everything."
+
+  - id: AI06
+    name: "Filler intensifiers"
+    instruction: |
+      Remove empty intensifiers that add no meaning.
+      If something is important, show it through evidence.
+    examples:
+      - "truly"
+      - "really"
+      - "incredibly"
+      - "extremely"
+      - "absolutely"
+      - "fundamentally"
+      - "essentially"
+      - "actually"
+
+  - id: AI07
+    name: "Rhetorical Q+A"
+    instruction: |
+      Avoid rhetorical question immediately followed by its answer
+      in the next sentence. This is a mechanical AI pattern.
+      Either let the question hang or integrate the answer differently.
+    examples:
+      - "What does this mean? It means that..."
+      - "Why does this matter? Because..."
+      - "How do we solve this? By..."
+
+  - id: AI08
+    name: "Structural telegraphing"
+    instruction: |
+      Don't announce what you're about to say.
+      Just say it. Avoid meta-commentary about structure.
+    examples:
+      - "Let me explain."
+      - "Here's the thing:"
+      - "Consider this:"
+      - "Here's why this matters:"
+      - "The answer is simple:"
+      - "There are three reasons:"
+
+  - id: AI09
+    name: "Perfect parallelism"
+    instruction: |
+      Avoid perfectly parallel sentence structures in sequence.
+      Humans vary their syntax naturally. Perfect parallelism
+      across multiple sentences signals AI generation.
+    examples:
+      - "X does A. Y does B. Z does C."
+      - "First... Second... Third..."
+      - "On one hand... On the other hand..."
 
   - id: S01
     name: "Thesis-first structure"

@@ -51,6 +51,19 @@ blacklist:
       - "Zusammenfassend lässt sich sagen"
       - "Abschließend sei erwähnt"
 
+  # Note: AI02-AI09 inherited from base-german
+
+  - id: AI10
+    name: "Tech-Blog KI-Phrasen"
+    instruction: "Spezifische KI-Muster im Tech-Kontext vermeiden."
+    examples:
+      - "In diesem Tutorial werden wir"
+      - "Schauen wir uns an, wie"
+      - "Wie Sie sehen können"
+      - "Das war's auch schon"
+      - "Jetzt haben Sie gelernt"
+      - "Fassen wir zusammen"
+
 settings:
   fit_threshold: 0.85
   max_iterations: 5

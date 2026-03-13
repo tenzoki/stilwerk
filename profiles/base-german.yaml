@@ -25,6 +25,97 @@ blacklist:
       - "Dieses leistungsstarke Tool"
       - "das Potenzial freisetzen"
       - "auf die nächste Stufe heben"
+      - "Am Ende des Tages"
+      - "Wenn es um X geht"
+      - "Die Realität ist"
+      - "Die Wahrheit ist"
+      - "Es versteht sich von selbst"
+      - "Vor diesem Hintergrund"
+      - "Das heißt,"
+      - "Die wichtigste Erkenntnis"
+
+  - id: AI02
+    name: "Gedankenstrich-Übernutzung"
+    instruction: |
+      Gedankenstriche (–) vermeiden. Kommas, Klammern, Doppelpunkte
+      oder Satzumstellung verwenden. Maximal ein Gedankenstrich pro 1000 Wörter.
+      Starkes KI-Signal.
+    examples:
+      - "der Code – der letzte Woche geschrieben wurde – scheiterte"
+      - "drei Optionen – schnell, billig oder gut – wähle zwei"
+
+  - id: AI03
+    name: "Dramatische Selbstverständlichkeiten"
+    instruction: |
+      Offensichtliche Aussagen nicht als Enthüllungen präsentieren.
+      Keine eigenständigen Ein-Satz-Absätze für Selbstverständlichkeiten.
+      Falsche Tiefgründigkeit vermeiden.
+    examples:
+      - "Entwickler arbeiten selten allein."
+      - "Aber es hört hier nicht auf."
+      - "Das ändert alles."
+      - "Und das ist die zentrale Erkenntnis."
+
+  - id: AI04
+    name: "Mechanische Dreiergruppen"
+    instruction: |
+      Dreigliedrige Parallelstrukturen als Standardrhythmus vermeiden.
+      "X, Y und Z" ist KI-Lieblingsstruktur. Zwei oder vier Elemente verwenden.
+    examples:
+      - "schnell, zuverlässig und skalierbar"
+      - "lesen, verarbeiten und ausgeben"
+
+  - id: AI05
+    name: "Dies/Das-Satzanfänge"
+    instruction: |
+      Sätze, die mit "Dies" oder "Das" als vage Referenz beginnen, reduzieren.
+      Konkret benennen, worauf sich bezogen wird.
+    examples:
+      - "Dies ist wichtig, weil..."
+      - "Das bedeutet, dass..."
+      - "Das ist der Schlüssel."
+
+  - id: AI06
+    name: "Füllwort-Verstärker"
+    instruction: "Leere Verstärker entfernen."
+    examples:
+      - "wirklich"
+      - "tatsächlich"
+      - "unglaublich"
+      - "extrem"
+      - "absolut"
+      - "grundlegend"
+      - "im Wesentlichen"
+      - "letztendlich"
+
+  - id: AI07
+    name: "Rhetorische Frage + Antwort"
+    instruction: |
+      Rhetorische Fragen nicht mit sofortiger Antwort folgen lassen.
+      Fragen wirken lassen oder umstrukturieren.
+    examples:
+      - "Was bedeutet das? Es bedeutet..."
+      - "Warum? Weil..."
+      - "Wie lösen wir das? Indem wir..."
+
+  - id: AI08
+    name: "Strukturelle Ankündigungen"
+    instruction: "Nicht ankündigen, was gleich gesagt wird."
+    examples:
+      - "Lass mich erklären."
+      - "Hier ist der Punkt:"
+      - "Hier ist warum:"
+      - "Die Antwort ist einfach:"
+      - "Es gibt drei Gründe:"
+
+  - id: AI09
+    name: "Perfekter Parallelismus"
+    instruction: |
+      Perfekt parallele Strukturen über mehrere Sätze vermeiden.
+      Menschen variieren ihre Syntax. Perfekter Parallelismus signalisiert KI.
+    examples:
+      - "X macht A. Y macht B. Z macht C."
+      - "Erstens... Zweitens... Drittens..."
 
   - id: L02
     name: "Corporate buzzwords (German)"

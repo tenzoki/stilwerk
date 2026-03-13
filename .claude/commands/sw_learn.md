@@ -24,7 +24,7 @@ Learn a style profile from exemplar texts in the corpus.
 
 3. **Run style learning**
    ```bash
-   PYTHONPATH=. python -m stilwerk.src.cli learn \
+   stilwerk learn \
      $STILWERK_PROJECTS/$STILWERK_PROJECT/corpus/<subdir> \
      --name <profile-name> \
      --output stilwerk/profiles/<profile-name>.yaml

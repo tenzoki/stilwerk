@@ -38,7 +38,7 @@ corpus/<subdir>/
 
 3. **Run attribution**
    ```bash
-   PYTHONPATH=. python -m stilwerk.src.cli attribute \
+   stilwerk attribute \
      $STILWERK_PROJECTS/$STILWERK_PROJECT/<file> \
      --corpus $STILWERK_PROJECTS/$STILWERK_PROJECT/corpus/<subdir> \
      --n-features 100 --json

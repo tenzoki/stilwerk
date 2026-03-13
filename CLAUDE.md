@@ -91,8 +91,8 @@ From stilwerk repo root:
 
 ```bash
 # Profiles
-PYTHONPATH=. python -m stilwerk.src.cli profile list
-PYTHONPATH=. python -m stilwerk.src.cli profile show <name>
+stilwerk profile list
+stilwerk profile show <name>
 
 # Shell metrics
 cd stilwerk && ./tools/metrics.sh <file>

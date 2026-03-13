@@ -79,6 +79,96 @@ blacklist:
       - "game-changer"
       - "unlock the potential"
       - "take it to the next level"
+      - "At the end of the day"
+      - "When it comes to"
+      - "The reality is"
+      - "It goes without saying"
+      - "With that in mind"
+      - "That said,"
+      - "Moving forward"
+      - "The key takeaway"
+
+  - id: AI02
+    name: "Em-dash overuse"
+    instruction: |
+      Avoid em-dashes (—). Use commas, parentheses, colons, periods,
+      or restructure. Maximum one em-dash per 1000 words.
+      This is a strong AI tell.
+    examples:
+      - "the code—which was written last week—failed"
+      - "three options—fast, cheap, or good—pick two"
+
+  - id: AI03
+    name: "Dramatic obviousness"
+    instruction: |
+      Don't present obvious statements as revelations.
+      No standalone paragraphs for self-evident truths.
+      Avoid false profundity.
+    examples:
+      - "Code needs to be maintained."
+      - "But it doesn't stop there."
+      - "This changes everything."
+      - "And that's the key insight."
+
+  - id: AI04
+    name: "Mechanical tricolons"
+    instruction: |
+      Avoid three-item parallel lists as default rhythm.
+      "X, Y, and Z" is AI's favorite structure. Use two or four items.
+    examples:
+      - "fast, reliable, and scalable"
+      - "read, process, and output"
+
+  - id: AI05
+    name: "This/That starters"
+    instruction: |
+      Reduce sentences starting with "This" or "That" as vague referents.
+      Name what you're referring to.
+    examples:
+      - "This is important because..."
+      - "This means that..."
+      - "That's the key."
+
+  - id: AI06
+    name: "Filler intensifiers"
+    instruction: "Remove empty intensifiers."
+    examples:
+      - "truly"
+      - "really"
+      - "incredibly"
+      - "extremely"
+      - "absolutely"
+      - "fundamentally"
+      - "essentially"
+
+  - id: AI07
+    name: "Rhetorical Q+A"
+    instruction: |
+      Don't follow rhetorical questions with immediate answers.
+      Let questions breathe or restructure.
+    examples:
+      - "What does this mean? It means..."
+      - "Why? Because..."
+      - "How do we fix this? We..."
+
+  - id: AI08
+    name: "Structural telegraphing"
+    instruction: "Don't announce what you're about to say."
+    examples:
+      - "Let me explain."
+      - "Here's the thing:"
+      - "Here's why:"
+      - "The answer is simple:"
+      - "There are three reasons:"
+
+  - id: AI09
+    name: "Perfect parallelism"
+    instruction: |
+      Avoid perfectly parallel structures across sentences.
+      Humans vary syntax. Perfect parallelism signals AI.
+    examples:
+      - "X does A. Y does B. Z does C."
+      - "First... Second... Third..."
 
   - id: L02
     name: "Corporate buzzwords"
