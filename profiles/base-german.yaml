@@ -1,0 +1,45 @@
+# Base German Profile
+# Common rules for German language texts
+
+name: "Base German"
+description: "Base profile for German language texts with common patterns."
+
+whitelist:
+  - id: L06
+    name: "German contractions"
+    instruction: |
+      Use natural German contractions: im, am, zum, zur, vom, beim,
+      ans, aufs, ins. These are standard in all but the most formal texts.
+
+blacklist:
+  - id: AI01
+    name: "AI phrases (German)"
+    instruction: "Remove characteristic AI patterns in German."
+    examples:
+      - "Es ist wichtig zu beachten"
+      - "Es ist erwähnenswert"
+      - "Lass uns eintauchen"
+      - "In diesem umfassenden Leitfaden"
+      - "Ob Anfänger oder Experte"
+      - "In der heutigen schnelllebigen Welt"
+      - "Dieses leistungsstarke Tool"
+      - "das Potenzial freisetzen"
+      - "auf die nächste Stufe heben"
+
+  - id: L02
+    name: "Corporate buzzwords (German)"
+    instruction: "Replace with concrete, specific language."
+    examples:
+      - "Mehrwert"
+      - "Synergie"
+      - "Paradigmenwechsel"
+      - "Best Practices"
+      - "skalierbar"
+      - "robust"
+      - "innovative Lösung"
+      - "zukunftsweisend"
+
+settings:
+  fit_threshold: 0.85
+  max_iterations: 5
+  excerpt_length: 500

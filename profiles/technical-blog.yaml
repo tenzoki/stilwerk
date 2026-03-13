@@ -1,0 +1,125 @@
+# Technical Blog - Human Voice
+# A conversational technical writing style with personal voice
+
+name: "Technical Blog - Human Voice"
+description: "Conversational technical writing. Personal, opinionated, concrete examples before abstractions."
+
+# Patterns to ENCOURAGE
+whitelist:
+  # Metric targets
+  - id: U01
+    name: "Sentence variance"
+    target: [8, 15]
+    instruction: |
+      Vary sentence length naturally. Mix short punchy sentences (3-7 words)
+      with longer explanatory ones (15-25 words). Occasional very short
+      sentences for emphasis.
+
+  - id: L06
+    name: "Contractions"
+    target: [0.3, 0.5]
+    instruction: |
+      Use contractions naturally: don't, it's, we're, that's.
+      Exception: Keep formal terms expanded in definitions.
+
+  - id: U05
+    name: "First person"
+    target: [3, 8]  # per 1000 words
+    instruction: |
+      Include personal perspective: "I think", "In my experience",
+      "What I've found", "We can see". Share opinions and uncertainties.
+
+  # Qualitative patterns
+  - id: R01
+    name: "Sentence variety"
+    instruction: |
+      Mix declarative, interrogative, and occasional fragments.
+      Ask rhetorical questions to engage reader.
+      Example: "But does this actually work? Let's see."
+
+  - id: A02
+    name: "Evidence pattern"
+    instruction: |
+      Lead with concrete examples before abstract principles.
+      "Consider this scenario..." before "The general rule is..."
+
+  - id: V03
+    name: "Epistemic stance"
+    instruction: |
+      Show uncertainty where appropriate: "I think", "probably",
+      "in my experience", "it seems". Avoid false certainty.
+
+# Patterns to ELIMINATE
+blacklist:
+  - id: D01
+    name: "Transition density"
+    max: 0.4
+    instruction: |
+      Reduce explicit transitions. Trust the reader.
+      Remove mechanical connectors between paragraphs.
+    examples:
+      - "Furthermore"
+      - "Additionally"
+      - "Moreover"
+      - "In addition to this"
+      - "It's important to note that"
+      - "It is worth mentioning"
+
+  - id: AI01
+    name: "AI phrases"
+    instruction: "Remove characteristic AI patterns completely."
+    examples:
+      - "Let's dive into"
+      - "Let's explore"
+      - "In this comprehensive guide"
+      - "Whether you're a beginner or expert"
+      - "In today's fast-paced world"
+      - "It's crucial to understand"
+      - "This powerful tool"
+      - "game-changer"
+      - "unlock the potential"
+      - "take it to the next level"
+
+  - id: L02
+    name: "Corporate buzzwords"
+    instruction: "Replace with concrete, specific language."
+    examples:
+      - "leverage"
+      - "synergy"
+      - "paradigm"
+      - "best practices"
+      - "robust"
+      - "scalable"
+      - "enterprise-grade"
+      - "cutting-edge"
+      - "innovative solution"
+
+  - id: S01
+    name: "Formulaic structure"
+    instruction: |
+      Don't follow 5-paragraph essay template.
+      Vary paragraph length. Not every section needs intro/body/conclusion.
+
+# Example texts (hybrid: extract + include)
+examples:
+  - path: ../examples/paul-graham.md
+    note: "Conversational, opinionated, concrete"
+    extract: true
+    include: true
+    weight: 1.0
+
+# Anti-examples
+anti_examples:
+  - path: ../examples/corporate-memo.md
+    note: "Stiff, buzzword-heavy, impersonal"
+    include: true
+
+  - path: ../examples/ai-generated.md
+    note: "Over-structured, formulaic, impersonal"
+    include: true
+
+# Settings
+settings:
+  fit_threshold: 0.85
+  max_iterations: 5
+  excerpt_length: 500

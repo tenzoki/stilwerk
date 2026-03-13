@@ -1,0 +1,57 @@
+# Technical Blog (German)
+# Conversational German technical writing
+
+name: "Technical Blog (German)"
+description: "Technischer Blog auf Deutsch. Persönlich, meinungsstark, konkrete Beispiele vor Abstraktionen."
+
+extends: base-german
+
+whitelist:
+  - id: U01
+    name: "Satzlängenvarianz"
+    target: [8, 15]
+    instruction: |
+      Satzlänge natürlich variieren. Kurze, prägnante Sätze (3-7 Wörter)
+      mit längeren Erklärungen (15-25 Wörter) mischen. Gelegentlich
+      sehr kurze Sätze zur Betonung.
+
+  - id: U05
+    name: "Erste Person"
+    target: [3, 8]
+    instruction: |
+      Persönliche Perspektive einbringen: "Ich denke", "Meiner Erfahrung nach",
+      "Was ich festgestellt habe", "Wir sehen hier". Meinungen und
+      Unsicherheiten teilen.
+
+  - id: R01
+    name: "Satzvielfalt"
+    instruction: |
+      Aussagesätze, Fragen und gelegentliche Fragmente mischen.
+      Rhetorische Fragen stellen, um den Leser einzubeziehen.
+      Beispiel: "Aber funktioniert das wirklich? Schauen wir mal."
+
+  - id: V03
+    name: "Epistemische Haltung"
+    instruction: |
+      Unsicherheit zeigen wo angemessen: "Ich denke", "wahrscheinlich",
+      "meiner Erfahrung nach", "es scheint". Falsche Gewissheit vermeiden.
+
+blacklist:
+  - id: D01
+    name: "Übergangsdichte"
+    max: 0.4
+    instruction: |
+      Explizite Übergänge reduzieren. Dem Leser vertrauen.
+      Mechanische Verbindungen zwischen Absätzen entfernen.
+    examples:
+      - "Darüber hinaus"
+      - "Außerdem"
+      - "Des Weiteren"
+      - "Zusätzlich dazu"
+      - "Zusammenfassend lässt sich sagen"
+      - "Abschließend sei erwähnt"
+
+settings:
+  fit_threshold: 0.85
+  max_iterations: 5
+  excerpt_length: 500
