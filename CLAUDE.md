@@ -4,32 +4,28 @@ A Claude Code plugin for style analysis, authorship attribution, and text transf
 
 ## Setup
 
-### 1. Set Projects Folder (once)
+### 1. Install the Plugin
 
 ```bash
-export STILWERK_PROJECTS=~/Documents/stilwerk-projects
+claude plugin add /path/to/stilwerk
 ```
 
-Add to `~/.zshrc` or `~/.bashrc` to persist.
+### 2. (Optional) Create User Config
 
-### 2. Create or Open a Project
-
-```
-/sw_create my-essay --profile essay
-```
-
-or
-
-```
-/sw_open my-essay
+```bash
+mkdir -p ~/.config/stilwerk
+cat > ~/.config/stilwerk/config.yaml <<EOF
+language: de
+default_profile: essay
+EOF
 ```
 
-### 3. Work with Your Project
+### 3. Use It on Any File
 
 ```
-/sw_analyze input/draft.md
-/sw_transform input/draft.md
-/sw_info
+/stilwerk:analyze draft.md
+/stilwerk:transform draft.md --profile essay
+/stilwerk:info
 ```
 
 ---
@@ -38,18 +34,11 @@ or
 
 | Command | Description |
 |---------|-------------|
-| `/sw_create <name> [--profile <n>]` | Create new project |
-| `/sw_open <name>` | Open existing project |
-| `/sw_info` | Show current project and commands |
-| `/sw_analyze <file> [--quick\|--deep]` | Analyze text style |
-| `/sw_transform <file> [--profile <n>]` | Transform to match profile |
-| `/sw_learn <corpus-subdir> --name <n>` | Learn profile from corpus |
-| `/sw_attribute <file> --corpus <dir>` | Authorship attribution |
-
-All paths are relative to `$STILWERK_PROJECTS/$STILWERK_PROJECT`:
-- `input/<file>` — texts to analyze/transform
-- `corpus/<dir>` — exemplar texts
-- `analysis/<file>` — output reports
+| `/stilwerk:info` | Show config, profiles, and commands |
+| `/stilwerk:analyze <file> [--quick\|--deep]` | Analyze text style |
+| `/stilwerk:transform <file> [--profile <n>]` | Transform to match profile |
+| `/stilwerk:learn <corpus-dir> --name <n>` | Learn profile from exemplars |
+| `/stilwerk:attribute <file> --corpus <dir>` | Authorship attribution |
 
 ---
 
@@ -60,17 +49,18 @@ All paths are relative to `$STILWERK_PROJECTS/$STILWERK_PROJECT`:
 - `technical-blog-de` — Technical blog (DE)
 - `base-german` — Base German profile
 
+User-created profiles are stored in `~/.local/share/stilwerk/profiles/`.
+
 ---
 
-## Project Structure
+## File Locations (XDG)
 
-```
-$STILWERK_PROJECTS/<project>/
-├── corpus/      # Exemplar texts (for learning/attribution)
-├── input/       # Texts to analyze or transform
-├── analysis/    # Output reports
-└── project.yaml # Project config (name, profile, settings)
-```
+| What | Where |
+|------|-------|
+| Built-in profiles | `${CLAUDE_PLUGIN_ROOT}/profiles/` |
+| User profiles | `~/.local/share/stilwerk/profiles/` |
+| User corpora | `~/.local/share/stilwerk/corpus/` |
+| User config | `~/.config/stilwerk/config.yaml` |
 
 ---
 
@@ -82,21 +72,6 @@ $STILWERK_PROJECTS/<project>/
 | Transition density | > 0.7 | < 0.3 |
 | Contraction rate | < 0.2 | > 0.5 |
 | First-person rate | < 1/1000 | > 5/1000 |
-
----
-
-## CLI Tools
-
-From stilwerk repo root:
-
-```bash
-# Profiles
-stilwerk profile list
-stilwerk profile show <name>
-
-# Shell metrics
-cd stilwerk && ./tools/metrics.sh <file>
-```
 
 ---
 

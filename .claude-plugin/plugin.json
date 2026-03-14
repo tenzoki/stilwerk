@@ -1,0 +1,11 @@
+{
+  "name": "stilwerk",
+  "version": "0.2.0",
+  "description": "Style analysis, authorship attribution, and text transformation toolkit",
+  "author": {
+    "name": "kai"
+  },
+  "repository": "https://github.com/sprantic/stilwerk",
+  "license": "MIT",
+  "keywords": ["style", "analysis", "stylometry", "authorship", "attribution", "transformation", "writing"]
+}
