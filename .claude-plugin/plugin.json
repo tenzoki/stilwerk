@@ -1,11 +1,20 @@
 {
-  "name": "stilwerk",
-  "version": "0.2.0",
-  "description": "Style analysis, authorship attribution, and text transformation toolkit",
-  "author": {
-    "name": "kai"
-  },
-  "repository": "https://github.com/sprantic/stilwerk",
-  "license": "MIT",
-  "keywords": ["style", "analysis", "stylometry", "authorship", "attribution", "transformation", "writing"]
-}
+    "name": "stilwerk",
+    "version": "1.0.0",
+    "description": "Style analysis, authorship attribution, and text transformation for Claude Code",
+    "author": {
+      "name": "Kai (qantr GmbH)",
+      "url": "https://github.com/tenzoki"
+    },
+    "homepage": "https://github.com/tenzoki/stilwerk",
+    "repository": "https://github.com/tenzoki/stilwerk",
+    "license": "MIT",
+    "keywords": [
+      "stylometry",
+      "style-analysis",
+      "authorship-attribution",
+      "text-transformation",
+      "writing",
+      "ai-detection"
+    ]
+  }
