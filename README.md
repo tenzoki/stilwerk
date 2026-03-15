@@ -9,10 +9,14 @@ A Claude Code plugin for style analysis, authorship attribution, and text transf
 
 ## Installation
 
-### From a marketplace
+### From the tenzoki marketplace
 
 ```bash
-/plugin install stilwerk@<marketplace-name>
+# Add the marketplace
+/plugin marketplace add tenzoki/claude-plugins
+
+# Install the plugin
+/plugin install stilwerk@tenzoki-plugins
 ```
 
 ### Local development
