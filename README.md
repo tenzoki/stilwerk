@@ -96,8 +96,7 @@ stilwerk/
 ├── profiles/              # Built-in style profiles
 ├── docs/                  # Documentation
 ├── src/                   # Python CLI tools
-├── tools/                 # Shell metric scripts
-└── settings.json          # Default permissions
+└── tools/                 # Shell metric scripts
 ```
 
 ## Documentation
