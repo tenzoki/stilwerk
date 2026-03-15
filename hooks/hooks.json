@@ -1,0 +1,16 @@
+{
+  "description": "Stilwerk plugin hooks - ensures Python CLI is available",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/ensure-cli.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

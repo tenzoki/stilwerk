@@ -21,10 +21,12 @@ A Claude Code plugin for style analysis, authorship attribution, and text transf
 claude plugin add /path/to/stilwerk
 ```
 
-### Python dependencies (for CLI tools)
+### Python CLI (auto-installed)
+
+The plugin includes a SessionStart hook that automatically installs the Python CLI on first use. If automatic installation fails, install manually:
 
 ```bash
-pip install -e /path/to/stilwerk
+pip install /path/to/stilwerk
 ```
 
 ## Quick Start
@@ -89,6 +91,8 @@ stilwerk/
 │   ├── info/
 │   ├── learn/
 │   └── transform/
+├── hooks/                 # Lifecycle hooks
+│   └── hooks.json         # Auto-install Python CLI
 ├── profiles/              # Built-in style profiles
 ├── docs/                  # Documentation
 ├── src/                   # Python CLI tools
